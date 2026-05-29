@@ -1,2 +1,2 @@
 # Pokevault
-Site de compras de pokemons e compania
+Site de compras de pokemons e companhia
