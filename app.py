@@ -6,7 +6,7 @@ from flask import Flask, render_template, request, redirect, session, jsonify
 import json
 
 # Abrir arquivo JSON
-with open("dados.json", "r", encoding="utf-8") as arquivo:
+with open("pokemons.json", "r", encoding="utf-8") as arquivo:
     dados = json.load(arquivo)
 
 # Transformar em lista
@@ -19,7 +19,7 @@ app.secret_key = 'IsoSOsoso'
 @app.route("/")
 @app.route("/inicio")
 def pagina_inicial():
-    return render_template("catalogo.html")
+    return render_template("catalogo.html", teste = lista)
 
 
 # @app.route("/produto/<int:codigo>")
