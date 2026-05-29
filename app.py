@@ -2,24 +2,25 @@ from flask import Flask, render_template, request, redirect, session, jsonify
 # from models.itens import recuperar_produtos, recuperar_produtos_destaques,recuperar_produto
 # from models.pokemon import cadastrar_usuarios
 # from models.usuario import pegar_login
+
+import json
+
+# Abrir arquivo JSON
+with open("pokemons.json", "r", encoding="utf-8") as arquivo:
+    dados = json.load(arquivo)
+
+# Transformar em lista
+lista = list(dados)
+
 app = Flask(__name__)
 
 app.secret_key = 'IsoSOsoso'
 
+@app.route("/")
+@app.route("/inicio")
+def pagina_inicial():
+    return render_template("catalogo.html", teste = lista)
 
-
-# @app.route("/inicio")
-# def pagina_catalogo():
-#     return render_template("index.html")
-
-
-
-
-
-
-@app.route("/catalgo")
-def pagina_catalogo():
-    return render_template("catalogo.html")
 
 # @app.route("/produto/<int:codigo>")
 # def segunda_pagina(codigo):
