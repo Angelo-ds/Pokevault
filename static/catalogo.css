@@ -264,7 +264,7 @@ main { flex: 1; min-width: 0; }
 .badge-eletrico{ background: #f39c12; }
 .badge-psiquico{ background: #8e44ad; }
 .badge-gelo    { background: #76b4d8; }
-.badge-normal  { background: #aaa; }
+.badge-normal  { background: gray; }
 .badge-terra   { background: #a0522d; }
 .badge-veneno  { background: #7d3c98; }
 .badge-fantasma{ background: #4a235a; }

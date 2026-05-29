@@ -6,9 +6,19 @@ app = Flask(__name__)
 
 app.secret_key = 'IsoSOsoso'
 
-@app.route("/")
-@app.route("/inicio")
-def pagina_inicial():
+
+
+# @app.route("/inicio")
+# def pagina_catalogo():
+#     return render_template("index.html")
+
+
+
+
+
+
+@app.route("/catalgo")
+def pagina_catalogo():
     return render_template("catalogo.html")
 
 # @app.route("/produto/<int:codigo>")
