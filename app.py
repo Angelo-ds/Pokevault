@@ -11,6 +11,10 @@ app.secret_key = 'IsoSOsoso'
 def pagina_inicial():
     return render_template("index.html")
 
+@app.route("/login")
+def pagina_login():
+    return render_template("login.html")
+
 # @app.route("/produto/<int:codigo>")
 # def segunda_pagina(codigo):
 #     return render_template("produto.html", produto = produto)

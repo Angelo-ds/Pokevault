@@ -1,5 +1,178 @@
 {% extends "layout.html" %}
 {% block conteudo %}
 
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&family=Bangers&display=swap');
+  
+  .pv-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem 2rem 2rem;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .pv-header {
+    text-align: center;
+    margin-bottom: 1.75rem;
+  }
+
+  .pv-logo {
+    font-family: 'Bangers', cursive;
+    font-size: 38px;
+    letter-spacing: 2px;
+    color: #cc0000;
+    text-shadow: 3px 3px 0 #ffcb05, 4px 4px 0 rgba(0,0,0,0.1);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .pv-logo span {
+    color: #ffcb05;
+    text-shadow: 3px 3px 0 #e0a900, 4px 4px 0 rgba(0,0,0,0.1);
+  }
+
+  .pv-subtitle {
+    font-size: 13px;
+    color: #888;
+    font-weight: 600;
+  }
+
+  .pv-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+  .pv-divider-line { flex: 1; height: 1px; background: #eee; }
+  .pv-divider-text { font-size: 12px; color: #bbb; font-weight: 600; }
+
+  .pv-pokeball-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 0.75rem;
+    display: block;
+  }
+
+  .pv-field {
+    margin-bottom: 1rem;
+  }
+
+  .pv-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 5px;
+  }
+
+  .pv-input {
+    width: 100%;
+    height: 44px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    padding: 0 14px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    color: #333;
+    box-sizing: border-box;
+    transition: border-color 0.15s;
+    background: #fafafa;
+    outline: none;
+  }
+  .pv-input:focus {
+    border-color: #cc0000;
+    background: white;
+  }
+
+  .pv-forgot {
+    text-align: right;
+    margin-top: -6px;
+    margin-bottom: 1.25rem;
+  }
+  .pv-forgot a {
+    font-size: 12px;
+    color: #cc0000;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .pv-btn {
+    width: 100%;
+    height: 46px;
+    background: #cc0000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Bangers', cursive;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .pv-btn:hover { background: #aa0000; }
+  .pv-btn:active { transform: scale(0.98); }
+
+  .pv-register {
+    text-align: center;
+    margin-top: 1.25rem;
+    font-size: 13px;
+    color: #888;
+    font-weight: 600;
+  }
+  .pv-register a {
+    color: #cc0000;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .poke-bola {
+    height: 60px;
+
+  }
+
+
+  .pv-root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:74vh;
+  }
+</style>
+
+<div class="pv-root">
+
+  <div class="pv-card">
+    <div class="pv-header">
+      <img class="poke-bola" src="/static/img/pokebola-header.png" alt=""><br>
+      <div class="pv-subtitle">Entre na sua conta de treinador</div>
+    </div>
+
+    <div class="pv-field">
+      <label class="pv-label">E-mail</label>
+      <input class="pv-input" type="email" placeholder="seu@email.com" />
+    </div>
+
+    <div class="pv-field">
+      <label class="pv-label">Senha</label>
+      <input class="pv-input" type="password" placeholder="••••••••" />
+    </div>
+
+    <div class="pv-forgot"><a>Esqueci minha senha</a></div>
+
+    <button class="pv-btn">ENTRAR</button>
+
+    <div class="pv-register">
+      Novo treinador? <a>Crie sua conta</a>
+    </div>
+  </div>
+</div>
+
 
 {% endblock %}
