@@ -1,0 +1,81 @@
+/* ================= GERAL ================= */
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: white;
+    margin: 0;
+}
+
+main {
+    margin-top: 30px;
+    padding: 20px;
+}
+
+/* ================= HERO ================= */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-content h1 {
+    font-size: 40px;
+    max-width: 400px;
+}
+
+.hero-content span {
+    color: #facc15;
+}
+
+.hero-content p {
+    margin: 10px 0;
+    opacity: 0.9;
+}
+
+.btn-primary {
+    background: #ef4444;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+.hero-image img {
+    width: 300px;
+}
+
+/* SETAS */
+.hero-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.3);
+    border: none;
+    color: white;
+    font-size: 24px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.hero-arrow.left { left: 10px; }
+.hero-arrow.right { right: 10px; }
+
+/* ================= SECTIONS ================= */
+.section {
+    margin-top: 30px;
+}
+
