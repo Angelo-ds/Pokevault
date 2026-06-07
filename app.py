@@ -15,6 +15,9 @@ def pagina_inicial():
 def pagina_login():
     return render_template("login.html")
 
+@app.route("/cadastro")
+def pagina_cadastro():
+    return render_template("cadastro.html")
 # @app.route("/produto/<int:codigo>")
 # def segunda_pagina(codigo):
 #     return render_template("produto.html", produto = produto)
