@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, session, jsonify
+from model.pokemons_select import recuperar_pokemons
 # from models.itens import recuperar_produtos, recuperar_produtos_destaques,recuperar_produto
 # from models.pokemon import cadastrar_usuarios
 # from models.usuario import pegar_login
@@ -19,7 +20,13 @@ app.secret_key = 'IsoSOsoso'
 @app.route("/")
 @app.route("/inicio")
 def pagina_inicial():
-    return render_template("catalogo.html", teste = lista)
+    return render_template("index.html")
+
+
+@app.route("/catalogo/<pag>")
+def pagina_catalogo(pag=0):
+    pokemons = recuperar_pokemons(pag= pag)
+    return render_template("catalogo.html", pokemons = pokemons)
 
 
 # @app.route("/produto/<int:codigo>")
