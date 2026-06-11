@@ -22,6 +22,13 @@ app.secret_key = 'IsoSOsoso'
 def pagina_inicial():
     return render_template("index.html")
 
+@app.route("/login")
+def pagina_login():
+    return render_template("login.html")
+
+@app.route("/cadastro")
+def pagina_cadastro():
+    return render_template("cadastro.html")
 
 @app.route("/catalogo/<pag>")
 def pagina_catalogo(pag=0):
