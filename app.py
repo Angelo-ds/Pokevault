@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, jsonify
 from model.pokemons_select import recuperar_pokemons
+from model.pokemons_select import recuperar_pokemon_unitario
+from model.pokemons_select import recuperar_pokemons_destaques
 # from models.itens import recuperar_produtos, recuperar_produtos_destaques,recuperar_produto
 # from models.pokemon import cadastrar_usuarios
 # from models.usuario import pegar_login
@@ -20,7 +22,8 @@ app.secret_key = 'IsoSOsoso'
 @app.route("/")
 @app.route("/inicio")
 def pagina_inicial():
-    return render_template("index.html")
+    poke_destaque = recuperar_pokemons_destaques
+    return render_template("index.html",destaques=poke_destaque)
 
 @app.route("/login")
 def pagina_login():
@@ -34,6 +37,11 @@ def pagina_cadastro():
 def pagina_catalogo(pag=0):
     pokemons = recuperar_pokemons(pag= pag)
     return render_template("catalogo.html", pokemons = pokemons)
+
+@app.route("/unitario/<id>")
+def pagina_unitario(id):
+    pokemon = recuperar_pokemon_unitario(id)
+    return render_template("unitario.html",pokemon = pokemon)
 
 
 # @app.route("/produto/<int:codigo>")

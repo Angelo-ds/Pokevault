@@ -78,22 +78,24 @@
     <!-- CARD GRID -->
     <div class="card-grid" id="cardGrid">
       {% for pokemon in pokemons: %}
-      <div class="card">
-        <div class="card-img-wrap" style="background:var(--{{pokemon.type1}})">
-            <img src="{{pokemon.image}}" alt="{{pokemon.name}}" loading="lazy">
-            <span class="card-badge" style="background:var(--badge-{{pokemon.type1}})">{{pokemon.type1}}</span>
-            <button class="card-fav" title="Favoritar">
-              <i class="bi bi-cart-plus icone"></i>
-            </button>
-          </div>
-          <div class="card-body">
-            <div class="teste">
-              <div class="card-name">{{pokemon.name}}</div>
-              <div class="card-tipos">{{pokemon.type1}}{% if pokemon.type2 == none :%}{% else %}/{{pokemon.type2}}{% endif %}</div>
+      <a href="/unitario/{{pokemon.id}}">
+        <div class="card">
+          <div class="card-img-wrap" style="background:var(--{{pokemon.type1}})">
+              <img src="{{pokemon.image}}" alt="{{pokemon.name}}" loading="lazy">
+              <span class="card-badge" style="background:var(--badge-{{pokemon.type1}})">{{pokemon.type1}}</span>
+              <button class="card-fav" title="Favoritar">
+                <i class="bi bi-cart-plus icone"></i>
+              </button>
             </div>
-            <div class="card-price">R${{pokemon.price}}</div>
-          </div>
-      </div>
+            <div class="card-body">
+              <div class="teste">
+                <div class="card-name">{{pokemon.name}}</div>
+                <div class="card-tipos">{{pokemon.type1}}{% if pokemon.type2 == none :%}{% else %}/{{pokemon.type2}}{% endif %}</div>
+              </div>
+              <div class="card-price">R${{pokemon.price}}</div>
+            </div>
+        </div>
+      </a>
       {% endfor %}
     </div>
  
