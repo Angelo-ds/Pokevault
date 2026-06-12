@@ -3,6 +3,7 @@ from model.pokemons_select import recuperar_pokemons
 from model.pokemons_select import recuperar_pokemon_unitario
 from model.pokemons_select import recuperar_pokemons_destaques
 from model.usuario import cadastrar
+from model.usuario import logar
 # from models.itens import recuperar_produtos, recuperar_produtos_destaques,recuperar_produto
 # from models.pokemon import cadastrar_usuarios
 # from models.usuario import pegar_login
@@ -30,6 +31,19 @@ def pagina_inicial():
 def pagina_login():
     return render_template("login.html")
 
+@app.route("/login/post", methods=["POST"])
+def logar_usuario_post():
+    email = request.form.get("email")
+    senha = request.form.get("senha")
+
+    resultado = logar(email, senha)
+
+    if resultado:
+        session["usuario_logado"] = resultado
+        print("RESULTADO LOGIN:", resultado)
+        print("TIPO:", type(resultado))
+    return redirect("/")
+
 @app.route("/cadastro")
 def pagina_cadastro():
     return render_template("cadastro.html")
@@ -44,7 +58,7 @@ def tela_cadastro_post():
     
     cadastrar(email, nome, telefone, endereco, senha)
 
-    return redirect("/")
+    return redirect("/login")
 
 @app.route("/catalogo/<pag>")
 def pagina_catalogo(pag=0):
