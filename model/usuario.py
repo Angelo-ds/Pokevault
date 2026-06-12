@@ -1,11 +1,11 @@
 from database.conexao import conectar
 
-def cadastrar(self):
+def cadastrar(email, nome, telefone, endereço, senha):
         conexao,cursor = conectar()
 
         cursor.execute('''INSERT INTO pokevault.usuarios (email,nome,telefone, endereço, senha)
         VALUES(%s, %s, %s, %s, %s);
-        ''',[self.usuario, self.senha, self.nome])
+        ''',[email, nome, telefone, endereço, senha])
 
         conexao.commit()
         conexao.close()
