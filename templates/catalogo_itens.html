@@ -34,11 +34,11 @@
         <h1 class="catalog-title">Catálogo de Pokemons</h1>
         <p class="catalog-subtitle">Encontre seu companheiro perfeito entre centenas de criaturas incríveis!</p>
       </div>
-      <select class="sort-select">
-        <option>Ordenar</option>
-        <option>Menor preço</option>
-        <option>Maior preço</option>
-      </select>
+    <select class="sort-select" onchange="if(this.value) window.location.href = this.value">
+      <option value="">Ordenar</option>
+      <option value="/catalogo/{{ pag if pag else 1 }}?{{ ns_pag.params }}{% if ns_pag.params %}&{% endif %}ordem=asc" {% if ordem_selecionada == 'asc' %}selected{% endif %}>Menor preço</option>
+      <option value="/catalogo/{{ pag if pag else 1 }}?{{ ns_pag.params }}{% if ns_pag.params %}&{% endif %}ordem=desc" {% if ordem_selecionada == 'desc' %}selected{% endif %}>Maior preço</option>
+    </select>
     </div>
  
     <div class="toolbar">

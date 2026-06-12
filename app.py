@@ -3,6 +3,8 @@ from model.pokemons_select import recuperar_pokemons
 from model.pokemons_select import recuperar_pokemon_unitario
 from model.pokemons_select import recuperar_pokemons_destaques
 from model.pokemons_select import recuperar_tipos
+from model.pokemons_select import recuperar_pokemons_preco_min
+from model.pokemons_select import recuperar_pokemons_preco_max
 from model.tipos import recuperar_tipos
 from model.usuario import cadastrar
 from model.usuario import logar
@@ -64,13 +66,23 @@ def tela_cadastro_post():
 @app.route("/catalogo/<pag>")
 def pagina_catalogo(pag=0):
     tipos_filtro = request.args.getlist("tipo")
-    pokemons = recuperar_pokemons(pag=pag, tipos=tipos_filtro)
+    ordem = request.args.get("ordem")
+
+    if ordem == "asc":
+        pokemons = recuperar_pokemons_preco_min(pag=pag, tipos=tipos_filtro)
+    elif ordem == "desc":
+        pokemons = recuperar_pokemons_preco_max(pag=pag, tipos=tipos_filtro)
+    else:
+        pokemons = recuperar_pokemons(pag=pag, tipos=tipos_filtro)
+
     tipos = recuperar_tipos()
     return render_template(
         "catalogo.html",
         pokemons=pokemons,
         tipos=tipos,
-        tipos_selecionados=tipos_filtro
+        tipos_selecionados=tipos_filtro,
+        ordem_selecionada=ordem,
+        pag=pag
     )
 @app.route("/unitario/<id>")
 def pagina_unitario(id):
