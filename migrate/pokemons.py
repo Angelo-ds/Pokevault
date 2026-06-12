@@ -129,6 +129,21 @@ for pokemon in pokemons:
             """, relacao_ataque)
 
             relacoes_ataques.add(relacao_ataque)
+            
+    cursor.execute("""
+    UPDATE Pokemons
+    SET destaque = 1
+    WHERE nome IN (
+        'Rayquaza',
+        'Groudon',
+        'Kyogre',
+        'Mewtwo',
+        'Pikachu',
+        'Lugia',
+        'Gyarados',
+        'Hypno'
+    )
+    """)
 
 conexao.commit()
 
