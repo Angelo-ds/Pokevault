@@ -10,7 +10,7 @@ from model.usuario import cadastrar
 from model.usuario import logar
 # from models.itens import recuperar_produtos, recuperar_produtos_destaques,recuperar_produto
 # from models.pokemon import cadastrar_usuarios
-# from models.usuario import pegar_login
+# from models.usuario import pegar_login e
 import json
 
 # Abrir arquivo JSON
