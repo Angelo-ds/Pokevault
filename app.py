@@ -34,6 +34,11 @@ def pagina_inicial():
 def pagina_login():
     return render_template("login.html")
 
+@app.route("/logout")
+def logout():
+    session.pop("usuario_logado", None) 
+    return redirect("/")  
+
 @app.route("/login/post", methods=["POST"])
 def logar_usuario_post():
     email = request.form.get("email")
