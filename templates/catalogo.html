@@ -11,7 +11,7 @@
   <div class="sidebar-card">
     <div class="sidebar-header">
       <span class="sidebar-title">Filtros</span>
-      <button class="sidebar-clear">Limpar tudo ↺</button>
+      <a href="/catalogo/1" class="sidebar-clear">Limpar tudo ↺</a>
     </div>
 
     <!-- Tipo -->
@@ -21,7 +21,7 @@
     </div>
     <div class="type-grid">
       {% for tipo in tipos %}
-      <span class="type-tag" style="background-color: var(--badge-{{tipo.tipo}});">{{tipo.tipo}}</span>
+      <a href="/catalogo/1?tipo={{tipo.tipo}}" class="type-tag {% if tipo_selecionado == tipo.tipo %}active{% endif %}" style="background-color: var(--badge-{{tipo.tipo}});">{{tipo.tipo}}</a>
       {% endfor %}
     </div>
   </div>
