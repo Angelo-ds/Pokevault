@@ -9,6 +9,16 @@
   {% if ns_pag.params %}{% set ns_pag.params = ns_pag.params ~ '&' %}{% endif %}
   {% set ns_pag.params = ns_pag.params ~ 'tipo=' ~ t %}
 {% endfor %}
+{% if ordem_selecionada %}
+  {% if ns_pag.params %}{% set ns_pag.params = ns_pag.params ~ '&' %}{% endif %}
+  {% set ns_pag.params = ns_pag.params ~ 'ordem=' ~ ordem_selecionada %}
+{% endif %}
+
+{% set ns_sort = namespace(params='') %}
+{% for t in tipos_selecionados %}
+  {% if ns_sort.params %}{% set ns_sort.params = ns_sort.params ~ '&' %}{% endif %}
+  {% set ns_sort.params = ns_sort.params ~ 'tipo=' ~ t %}
+{% endfor %}
 
 <!-- PAGE BODY -->
 <main>
@@ -80,10 +90,10 @@
         <h1 class="catalog-title">Catálogo de Pokemons</h1>
         <p class="catalog-subtitle">Encontre seu companheiro perfeito entre centenas de criaturas incríveis!</p>
       </div>
-      <select class="sort-select">
-        <option>Ordenar</option>
-        <option>Menor preço</option>
-        <option>Maior preço</option>
+      <select class="sort-select" onchange="if(this.value) window.location.href = this.value">
+        <option value="">Ordenar</option>
+        <option value="/catalogo/{{ pag if pag else 1 }}?{{ ns_sort.params }}{%- if ns_sort.params -%}&{%- endif -%}ordem=asc" {% if ordem_selecionada == 'asc' %}selected{% endif %}>Menor preço</option>
+        <option value="/catalogo/{{ pag if pag else 1 }}?{{ ns_sort.params }}{%- if ns_sort.params -%}&{%- endif -%}ordem=desc" {% if ordem_selecionada == 'desc' %}selected{% endif %}>Maior preço</option>
       </select>
     </div>
  
