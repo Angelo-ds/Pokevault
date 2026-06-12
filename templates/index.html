@@ -40,8 +40,7 @@
                     <div class="img-wrap" style="background:var(--{{pokemon.type1}})">
                         <span class="type-badge" style="background:var(--badge-{{pokemon.type1}})">{{pokemon.type1}}</span>
                         <button class="btn-fav">
-                            <span class="material-symbols-outlined">favorite</span>
-
+                            <span class="material-symbols-outlined">shopping_cart</span>
                         </button>
                         <a href="/unitario/{{pokemon.id}}">
                         <img src="{{pokemon.image}}" alt="{{pokemon.name}}">
@@ -95,7 +94,9 @@ async function carregarItens() {
             <div class="img-wrap" style="background:${bg}">
                 <span class="type-badge item">Item</span>
                 <button class="btn-fav" onclick="this.classList.toggle('active')">
-                    <span class="material-symbols-outlined">favorite</span>
+                    <span class="material-symbols-outlined">
+                        add_shopping_cart
+                    </span>
                 </button>
                 <img src="${item.sprites.default}" alt="${item.name}">
             </div>
