@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, session, jsonify
 from model.pokemons_select import recuperar_pokemons
 from model.pokemons_select import recuperar_pokemon_unitario
 from model.pokemons_select import recuperar_pokemons_destaques
+from model.usuario import cadastrar
 # from models.itens import recuperar_produtos, recuperar_produtos_destaques,recuperar_produto
 # from models.pokemon import cadastrar_usuarios
 # from models.usuario import pegar_login
@@ -32,6 +33,16 @@ def pagina_login():
 @app.route("/cadastro")
 def pagina_cadastro():
     return render_template("cadastro.html")
+
+@app.route("/cadastro/post", methods=["POST"])
+def tela_cadastro_post():
+    email = request.form.get("email")
+    senha = request.form.get("senha")
+    nome = request.form.get("nome_completo")
+    telefone = request.form.get("telefone")
+    endereco = request.form.get("endereco")
+    
+    cadastrar(email, nome, telefone, endereco, senha)
 
 @app.route("/catalogo/<pag>")
 def pagina_catalogo(pag=0):
