@@ -44,10 +44,6 @@ def pagina_unitario(id):
     return render_template("unitario.html",pokemon = pokemon)
 
 
-# @app.route("/produto/<int:codigo>")
-# def segunda_pagina(codigo):
-#     return render_template("produto.html", produto = produto)
-
 
 
 # @app.route("/api/get/carrinho", methods = ["GET"])
