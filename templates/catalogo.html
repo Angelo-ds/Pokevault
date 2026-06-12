@@ -11,7 +11,7 @@
   <div class="sidebar-card">
     <div class="sidebar-header">
       <span class="sidebar-title">Filtros</span>
-      <button class="sidebar-clear">Limpar tudo ↺</button>
+      <a href="/catalogo/1" class="sidebar-clear">Limpar tudo ↺</a>
     </div>
 
     <!-- Tipo -->
@@ -20,26 +20,10 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
     </div>
     <div class="type-grid">
-      <span class="type-tag fogo">Fogo</span>
-      <span class="type-tag agua">Água</span>
-      <span class="type-tag planta">Planta</span>
-      <span class="type-tag eletrico">Elétrico</span>
-      <span class="type-tag psiquico">Psíquico</span>
-      <span class="type-tag gelo">Gelo</span>
-      <span class="type-tag lutador">Lutador</span>
-      <span class="type-tag voo">Voador</span>
-      <span class="type-tag terra">Terra</span>
-      <span class="type-tag veneno">Veneno</span>
-      <span class="type-tag fantasma">Fantasma</span>
-      <span class="type-tag dragao">Dragão</span>
-      <span class="type-tag aco">Aço</span>
-      <span class="type-tag todo">Tudo</span>
+      {% for tipo in tipos %}
+      <a href="/catalogo/1?tipo={{tipo.tipo}}" class="type-tag {% if tipo_selecionado == tipo.tipo %}active{% endif %}" style="background-color: var(--badge-{{tipo.tipo}});">{{tipo.tipo}}</a>
+      {% endfor %}
     </div>
-
-    <button class="btn-apply">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
-      Aplicar filtros
-    </button>
   </div>
 </aside>
  

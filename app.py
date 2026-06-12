@@ -2,12 +2,13 @@ from flask import Flask, render_template, request, redirect, session, jsonify
 from model.pokemons_select import recuperar_pokemons
 from model.pokemons_select import recuperar_pokemon_unitario
 from model.pokemons_select import recuperar_pokemons_destaques
+from model.pokemons_select import recuperar_tipos
+from model.tipos import recuperar_tipos
 from model.usuario import cadastrar
 from model.usuario import logar
 # from models.itens import recuperar_produtos, recuperar_produtos_destaques,recuperar_produto
 # from models.pokemon import cadastrar_usuarios
 # from models.usuario import pegar_login
-
 import json
 
 # Abrir arquivo JSON
@@ -24,7 +25,7 @@ app.secret_key = 'IsoSOsoso'
 @app.route("/")
 @app.route("/inicio")
 def pagina_inicial():
-    poke_destaque = recuperar_pokemons_destaques
+    poke_destaque = recuperar_pokemons_destaques()
     return render_template("index.html",destaques=poke_destaque)
 
 @app.route("/login")
@@ -62,9 +63,15 @@ def tela_cadastro_post():
 
 @app.route("/catalogo/<pag>")
 def pagina_catalogo(pag=0):
-    pokemons = recuperar_pokemons(pag= pag)
-    return render_template("catalogo.html", pokemons = pokemons)
-
+    tipo_filtro = request.args.get("tipo")
+    pokemons = recuperar_pokemons(pag=pag, tipo=tipo_filtro)
+    tipos = recuperar_tipos()
+    return render_template(
+        "catalogo.html",
+        pokemons=pokemons,
+        tipos=tipos,
+        tipo_selecionado=tipo_filtro
+    )
 @app.route("/unitario/<id>")
 def pagina_unitario(id):
     pokemon = recuperar_pokemon_unitario(id)
