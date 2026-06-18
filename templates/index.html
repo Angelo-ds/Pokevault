@@ -50,7 +50,27 @@
                 <button class="ver-todos">Ver todos →</button>
             </div>
 
-            <div class="destaque-grid" id="itensDestaque"></div>
+            <div class="destaque-grid" id="pokemonDestaque">
+                {% for pokemon in destaques_len: %}
+            
+                <div class="card-destaque">
+                    <div class="img-wrap" style="background:var(--{{pokemon.type1}})">
+                        <span class="type-badge" style="background:var(--badge-{{pokemon.type1}})">{{pokemon.type1}}</span>
+                        <button class="btn-fav">
+                            <span class="material-symbols-outlined">favorite</span>
+
+                        </button>
+                        <a href="/unitario/{{pokemon.id}}">
+                        <img src="{{pokemon.image}}" alt="{{pokemon.name}}">
+                    </div>
+                    <div class="card-info">
+                        <div class="nome">{{pokemon.name}}</div>
+                        <div class="tipo-texto">{{pokemon.type1}}{% if pokemon.type2 == none :%}{% else %}/{{pokemon.type2}}{% endif %}</div>
+                    </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
 
         </section>
 

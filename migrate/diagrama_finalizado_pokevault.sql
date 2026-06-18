@@ -29,7 +29,7 @@ CREATE TABLE tipos (
 
 CREATE TABLE usuarios (
     id_usuario INT NOT NULL auto_increment,
-    email VARCHAR(100),
+    email VARCHAR(100) unique,
     nome VARCHAR(80),
     telefone VARCHAR(20),
     endereco VARCHAR(100),
@@ -51,10 +51,11 @@ CREATE TABLE ataques_pokemons (
         REFERENCES Ataques(id_ataque)
 );
 
+
 CREATE TABLE carrinhos (
-    id_carrinho INT NOT NULL,
+    id_carrinho INT NOT NULL auto_increment,
     id_usuario INT NOT NULL,
-    data DATE,
+    data datetime default current_timestamp,
     finalizado BOOLEAN,
 
     PRIMARY KEY (id_carrinho),
@@ -77,7 +78,7 @@ CREATE TABLE Pokemons_tipos (
 );
 
 CREATE TABLE produtos_carrinho (
-    id INT NOT NULL,
+    id INT NOT NULL auto_increment,
     id_pokemon INT NOT NULL,
     quantidade INT,
     id_carrinho INT NOT NULL,
