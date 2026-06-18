@@ -12,6 +12,8 @@ from model.usuario import logar
 from model.comentarios import enviar_comentario_unitario, obter_autor_comentario
 from model.comentarios import obter_comentarios_unitario
 from model.comentarios import deletar_comentario_unitario
+from model.carrinho import recuperar_carrinho
+from model.carrinho import adicionar_pokemon_carrinho
 # from models.itens import recuperar_produtos, recuperar_produtos_destaques,recuperar_produto
 # from models.pokemon import cadastrar_usuarios
 # from models.usuario import pegar_login
@@ -54,8 +56,7 @@ def logar_usuario_post():
 
     if resultado:
         session["usuario_logado"] = resultado
-        print("RESULTADO LOGIN:", resultado)
-        print("TIPO:", type(resultado))
+        print("RESULTADO LOGIN:", resultado["id_usuario"])
     return redirect("/")
 
 @app.route("/cadastro")
@@ -142,8 +143,17 @@ def unitario_delete_comentario(id):
     deletar_comentario_unitario(cod_comentario)
     return jsonify({'message': 'Comentário deletado'}), 200
 
+@app.route("/carrinho")
+def pag_carrinho():
+    if 'usuario_logado' in session:
+        return jsonify(recuperar_carrinho(session['usuario_logado']["id_usuario"])),200
+    else :
+        return jsonify({"message":"Usuario não logado"}),401
 
-
+@app.route("/carrinho/post/<int:id>")
+def pag_carrinho_post(id):
+    adicionar_pokemon_carrinho(id,session['usuario_logado']["id_usuario"])
+    return redirect("/inicio")
 
 # @app.route("/api/get/carrinho", methods = ["GET"])
 # def api_get_carrinho():
