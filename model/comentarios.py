@@ -18,14 +18,24 @@ def enviar_comentario_unitario(comentario, id_pokemon, id_usuario, nome_usuario,
 
 def obter_comentarios_unitario(id_pokemon):
     conexao, cursor = conectar()
+
     sql = """
-        SELECT cod_comentario, nome_usuario, comentario, nota, id_usuario 
-        FROM comentario_unitario 
-        WHERE id_pokemon = %s
-        ORDER BY cod_comentario DESC
+        SELECT 
+            c.cod_comentario, 
+            c.nome_usuario, 
+            c.comentario, 
+            c.nota, 
+            c.id_usuario,
+            u.foto_perfil
+        FROM comentario_unitario c
+        JOIN usuarios u ON c.id_usuario = u.id_usuario
+        WHERE c.id_pokemon = %s
+        ORDER BY c.cod_comentario DESC
     """
+
     cursor.execute(sql, (id_pokemon,))
     comentarios = cursor.fetchall()
+
     cursor.close()
     conexao.close()
     return comentarios

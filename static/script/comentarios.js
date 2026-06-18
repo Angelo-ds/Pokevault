@@ -36,7 +36,7 @@ const carregarComents = async () => {
 
                 container.innerHTML += `
 <div class="review">
-    <img src="https://images.icon-icons.com/851/PNG/512/Pokemon_Trainer_Boy_icon-icons.com_67516.png" class="avatar">
+    <img src="${c.foto_perfil}" class="avatar">
     <div class="review-content">
         <div class="top">
             <strong>${c.nome_usuario}</strong>
