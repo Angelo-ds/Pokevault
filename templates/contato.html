@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PokeVault — Contato</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+{% extends "layout.html" %}
+{% block conteudo %}
 
 <style>
 /* ===========================================================
@@ -169,39 +163,23 @@ button { font-family: inherit; cursor: pointer; }
   display: grid;
   grid-template-columns: 1.15fr 1fr;
   gap: 30px;
-  align-items: start;
+  align-items: stretch; /* Corrigido de 'start' para 'stretch' para esticar as colunas igualmente */
 }
 .contact-illustration {
   border-radius: 14px;
   overflow: hidden;
-  aspect-ratio: 16 / 10;
-  background: linear-gradient(160deg, #3a2a6b, #1c1440 70%);
+  height: 100%; /* Adicionado para forçar a imagem a ocupar 100% da altura do container */
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%),
+    url('../static/img/contato_hero.png');
+  background-size: cover;
+  background-position: center;
   position: relative;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   box-shadow: var(--shadow);
-}
-.contact-illustration::before {
-  content: "PokéVault Support";
-  position: absolute;
-  top: 18px; left: 50%;
-  transform: translateX(-50%);
-  background: #c98a4d;
-  color: #2a1a05;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.95rem;
-  padding: 8px 18px;
-  border-radius: 6px;
-  border: 2px solid #8a5a28;
-  box-shadow: var(--shadow);
-}
-.contact-illustration .desk {
-  width: 100%;
-  height: 38%;
-  background: linear-gradient(180deg, #8a5a2e, #6b4220);
-  border-top: 4px solid #5c3818;
+  /* aspect-ratio removido para não travar o tamanho da proporção */
 }
 
 .contact-info h2 {
@@ -268,112 +246,23 @@ button { font-family: inherit; cursor: pointer; }
 }
 .btn-send:hover { background: var(--red-dark); }
 
-.map-block {
-  margin-top: 14px;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  position: relative;
-  aspect-ratio: 16 / 4;
-  background:
-    linear-gradient(160deg, #cfe3d6, #a9c7b3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.map-block span {
-  font-family: var(--font-display);
-  font-weight: 700;
-  color: var(--ink);
-  background: rgba(255,255,255,0.85);
-  padding: 6px 16px;
-  border-radius: 999px;
-  font-size: 0.85rem;
-}
-
-/* ---------- News strip ---------- */
-.news-strip {
-  max-width: 1100px;
-  margin: 24px auto 50px;
-  padding: 0 16px;
-}
-.news-card {
-  background: var(--cream-card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  display: flex;
-  gap: 18px;
-  padding: 16px;
-  align-items: center;
-}
-.news-thumb {
-  width: 96px;
-  height: 72px;
-  border-radius: 10px;
-  flex-shrink: 0;
-  background: linear-gradient(135deg, #ffb454, #e0473c);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 1.6rem;
-}
-.news-card h3 {
-  margin: 0 0 4px;
-  font-size: 1rem;
-}
-.news-card p {
-  margin: 0 0 8px;
-  font-size: 0.85rem;
-  color: var(--ink-soft);
-  line-height: 1.45;
-}
-.news-card a {
-  color: var(--red);
-  font-weight: 700;
-  font-size: 0.85rem;
-}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
   .contact-grid { grid-template-columns: 1fr; }
   .navbar nav { gap: 18px; flex-wrap: wrap; padding: 12px 10px; }
+  .contact-illustration { aspect-ratio: 16 / 10; } /* Retorna uma proporção agradável no mobile já que vira uma coluna só */
 }
 </style>
 </head>
 <body>
-
-  <!-- Topbar -->
-  <header class="topbar">
-    <button class="btn-login">👤 Entrar</button>
-    <div class="brand"><span class="pokeball-icon" style="margin-right:8px"></span>Poke<span class="accent">Vault</span></div>
-    <a href="#" class="cart-link" aria-label="Carrinho">
-      <span class="pokeball-icon"></span>
-    </a>
-  </header>
-
-  <!-- Nav -->
-  <div class="navbar">
-    <nav>
-      <a href="index.html">🏠 Início</a>
-      <a href="#">Menu ▾</a>
-      <a href="#">Novidades</a>
-      <a href="#">Sobre nós</a>
-      <a href="contato.html" class="active">Contato</a>
-      <a href="#">🛒</a>
-    </nav>
-  </div>
-
   <div class="contact-wrap">
     <div class="contact-panel">
-      <h1>Entre em Contato com a PokeVault: Sua Jornada Continua Aqui</h1>
+      <h1>De sua opnião ao Site!</h1>
 
       <div class="contact-grid">
 
-        <div class="contact-illustration">
-          <div class="desk"></div>
-        </div>
+        <div class="contact-illustration"></div>
 
         <div class="contact-info">
           <h2>Fale Conosco</h2>
@@ -402,32 +291,31 @@ button { font-family: inherit; cursor: pointer; }
             </div>
           </div>
 
-          <form class="contact-form" onsubmit="return false;">
+          <form class="contact-form" onsubmit="enviarFormulario(event)">
             <input type="email" placeholder="Seu Email" required>
             <textarea placeholder="Sua Mensagem" required></textarea>
             <button type="submit" class="btn-send">Enviar</button>
           </form>
-
-          <div class="map-block">
-            <span>📍 Localização da PokéVault HQ</span>
-          </div>
         </div>
 
       </div>
     </div>
-  </div>
+</div>
 
-  <!-- Notícia / próxima coleção -->
-  <section class="news-strip">
-    <div class="news-card">
-      <div class="news-thumb">📦</div>
-      <div>
-        <h3>Próxima Coleção de Cartas</h3>
-        <p>A nova Coleção de Cartas está chegando, com novidades incríveis para os colecionadores. Fique de olho nas novidades.</p>
-        <a href="#">Ler artigo completo (Brevemente)</a>
-      </div>
-    </div>
-  </section>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
 
-</body>
-</html>
+function enviarFormulario(event) {
+    event.preventDefault(); 
+
+    Swal.fire({
+      title: "Enviado com sucesso!",
+      text: "Aguarde nossa resposta",
+      icon: "success"
+    });
+  }
+
+
+</script>
+
+{% endblock %}
