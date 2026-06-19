@@ -164,6 +164,10 @@ def novidade_pag():
 def contato_pag():
     return render_template("contato.html")
 
+@app.route("/sobre-nos")
+def pagina_sobre_nos():
+    return render_template("sobre-nos.html")
+
 # @app.route("/api/get/carrinho", methods = ["GET"])
 # def api_get_carrinho():
 #     if "usuario_logado" in session:
