@@ -143,10 +143,53 @@ for pokemon in pokemons:
         'Gyarados',
         'Hypno'
     )
+                   
     """)
+    cursor.execute("""
+    UPDATE Pokemons
+    SET destaque = 1
+    WHERE nome IN (
+        'Rayquaza',
+        'Groudon',
+        'Kyogre',
+        'Mewtwo',
+        'Pikachu',
+        'Lugia',
+        'Gyarados',
+        'Hypno'
+    )
+                   
+    """)
+
+    
+
+conexao.commit()
+
+
+cursor.execute("""
+        INSERT INTO usuarios (email, nome, telefone, endereco, senha, foto_perfil)
+        VALUES (
+            'alex.stocco@email.com',
+            'Alex Fernando Stocco',
+            NULL,
+            NULL,
+            NULL,
+            'https://www.image2url.com/r2/default/images/1781811022481-d834e504-0630-4474-9554-a9237eba509d.png'
+        );
+
+        INSERT INTO comentario_unitario (id_pokemon, nome_usuario, comentario, nota, id_usuario)
+        VALUES (
+            97,
+            'Alex Fernando Stocco',
+            'derrotei o clube dos 5 só com ele, hipnose come sonhos',
+            5,
+            LAST_INSERT_ID()
+        );
+""") 
 
 conexao.commit()
 
 cursor.close()
+
 conexao.close()
 

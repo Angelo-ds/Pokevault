@@ -30,16 +30,20 @@ const carregarComents = async () => {
         } else {
             container.innerHTML = ''
             comentarios.forEach((c) => {
+                const botaoExcluir = c.id_usuario === usuarioLogadoId
+                    ? `<button class="btn-delete" data-id="${c.cod_comentario}">excluir</button>`
+                    : ''
+
                 container.innerHTML += `
 <div class="review">
-    <img src="https://images.icon-icons.com/851/PNG/512/Pokemon_Trainer_Boy_icon-icons.com_67516.png" class="avatar">
+    <img src="${c.foto_perfil}" class="avatar">
     <div class="review-content">
         <div class="top">
             <strong>${c.nome_usuario}</strong>
         </div>
         <div class="stars">${gerarEstrelas(c.nota)}</div>
         <p>${c.comentario}</p>
-        <button class="btn-delete" data-id="${c.cod_comentario}">excluir</button>
+        ${botaoExcluir}
     </div>
 </div>`
             })

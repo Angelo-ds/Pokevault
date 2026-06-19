@@ -1,13 +1,13 @@
 from database.conexao import conectar
 
-def enviar_comentario_unitario(comentario, id_pokemon, nome_usuario, nota):
+def enviar_comentario_unitario(comentario, id_pokemon, id_usuario, nome_usuario, nota):
     conexao, cursor = conectar()
     try:
         sql = """
-            INSERT INTO comentario_unitario(comentario, id_pokemon, nome_usuario, nota) 
-            VALUES(%s, %s, %s, %s)
+            INSERT INTO comentario_unitario(comentario, id_pokemon, id_usuario, nome_usuario, nota) 
+            VALUES(%s, %s, %s, %s, %s)
         """
-        cursor.execute(sql, (comentario, id_pokemon, nome_usuario, nota))
+        cursor.execute(sql, (comentario, id_pokemon, id_usuario, nome_usuario, nota))
         conexao.commit()
     except Exception as e:
         print(f"Erro ao Inserir Comentário: {e}")
@@ -15,19 +15,40 @@ def enviar_comentario_unitario(comentario, id_pokemon, nome_usuario, nota):
         cursor.close()
         conexao.close()
 
+
 def obter_comentarios_unitario(id_pokemon):
     conexao, cursor = conectar()
+
     sql = """
-        SELECT cod_comentario, nome_usuario, comentario, nota 
-        FROM comentario_unitario 
-        WHERE id_pokemon = %s
-        ORDER BY cod_comentario DESC
+        SELECT 
+            c.cod_comentario, 
+            c.nome_usuario, 
+            c.comentario, 
+            c.nota, 
+            c.id_usuario,
+            u.foto_perfil
+        FROM comentario_unitario c
+        JOIN usuarios u ON c.id_usuario = u.id_usuario
+        WHERE c.id_pokemon = %s
+        ORDER BY c.cod_comentario DESC
     """
+
     cursor.execute(sql, (id_pokemon,))
     comentarios = cursor.fetchall()
+
     cursor.close()
     conexao.close()
     return comentarios
+
+
+def obter_autor_comentario(cod_comentario):
+    conexao, cursor = conectar()
+    sql = "SELECT id_usuario FROM comentario_unitario WHERE cod_comentario = %s"
+    cursor.execute(sql, (cod_comentario,))
+    resultado = cursor.fetchone()
+    cursor.close()
+    conexao.close()
+    return resultado
 
 
 def deletar_comentario_unitario(id):

@@ -637,3 +637,7 @@ body {
     align-items: center;
     gap: 10px;
 }
+
+.disabled {
+    cursor: not-allowed;
+}

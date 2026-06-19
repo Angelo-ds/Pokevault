@@ -101,3 +101,9 @@ CREATE TABLE comentario_unitario (
     CONSTRAINT chk_nota_unitario CHECK (nota >= 0 AND nota <= 5),
     FOREIGN KEY (id_pokemon) REFERENCES Pokemons(id_pokemon)
 );
+
+-- --------------------------------
+ALTER TABLE comentario_unitario ADD COLUMN id_usuario INT NOT NULL;
+ALTER TABLE comentario_unitario ADD FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario);
+ALTER TABLE usuarios ADD COLUMN foto_perfil VARCHAR(255) DEFAULT 'https://images.icon-icons.com/851/PNG/512/Pokemon_Trainer_Boy_icon-icons.com_67516.png';
+
