@@ -51,7 +51,6 @@ CREATE TABLE ataques_pokemons (
         REFERENCES Ataques(id_ataque)
 );
 
-
 CREATE TABLE carrinhos (
     id_carrinho INT NOT NULL auto_increment,
     id_usuario INT NOT NULL,
@@ -63,6 +62,8 @@ CREATE TABLE carrinhos (
     FOREIGN KEY (id_usuario)
         REFERENCES usuarios(id_usuario)
 );
+
+ALTER TABLE carrinhos AUTO_INCREMENT = 2;
 
 CREATE TABLE Pokemons_tipos (
     id_tipo INT NOT NULL,
@@ -106,4 +107,3 @@ CREATE TABLE comentario_unitario (
 ALTER TABLE comentario_unitario ADD COLUMN id_usuario INT NOT NULL;
 ALTER TABLE comentario_unitario ADD FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario);
 ALTER TABLE usuarios ADD COLUMN foto_perfil VARCHAR(255) DEFAULT 'https://images.icon-icons.com/851/PNG/512/Pokemon_Trainer_Boy_icon-icons.com_67516.png';
-

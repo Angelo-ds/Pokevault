@@ -6560,5 +6560,39 @@
         "attack_type4": "Normal",
         "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/386.png",
         "price": 2000
+    },
+    {
+        "id": 720,
+        "name": "Hoopa",
+        "type1": "Psíquico",
+        "type2": "Fantasma",
+        "description": "Este Pokémon reúne coisas de que gosta passando-as por seus anéis e transferindo-as para lugares secretos.",
+        "attack1": "Fenda de Hiperespaço",
+        "attack2": "Bola Sombria",
+        "attack3": "Mega Soco",
+        "attack4": "Corte",
+        "attack_type1": "Psíquico",
+        "attack_type2": "Fantasma",
+        "attack_type3": "Normal",
+        "attack_type4": "Normal",
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/720.png",
+        "price": 2000
+    },
+    {
+        "id": 10086,
+        "name": "Hoopa-Despertado",
+        "type1": "Psíquico",
+        "type2": "Sombrio",
+        "description": "Esta é a verdadeira forma de Hoopa, na qual ele recuperou seus poderes que estavam selados. Diz-se que o buraco em seu peito se conecta a outra dimensão.",
+        "attack1": "Fúria do Hiperspaço",
+        "attack2": "Pulso Sombrio",
+        "attack3": "Cabeçada Zen",
+        "attack4": "Espaço Truque",
+        "attack_type1": "Sombrio",
+        "attack_type2": "Sombrio",
+        "attack_type3": "Psíquico",
+        "attack_type4": "Psíquico",
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10086.png",
+        "price": 5000
     }
 ]

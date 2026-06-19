@@ -12,3 +12,16 @@ fazer comentario do alex na pagina do hypno
 
 fazer comentario do alex na pagina do hypno
 "derrotei o clube dos 5 só com ele, hipnose come sonhos" - palavras dele
+
+
+
+INSERT INTO Pokemons (id_pokemon, nome, descricao, imagem, preco, destaque)
+VALUES (
+    720, 
+    'Hoopa', 
+    'Este Pokémon reúne coisas de que gosta passando-as por seus anéis e transferindo-as para lugares secretos.', 
+    'https://img.pokemondb.net/sprites/home/normal/hoopa-confined.png', 
+    150.00, 
+    1
+);
+

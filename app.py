@@ -154,12 +154,16 @@ def pag_carrinho():
 @app.route("/carrinho/post/<int:id>")
 def pag_carrinho_post(id):
     adicionar_pokemon_carrinho(id,session['usuario_logado']["id_usuario"])
-    return redirect("/inicio")
+    pagina_anterior = request.referrer or "/inicio"
+    
+    return redirect(pagina_anterior)
 
 @app.route("/carrinho/delete/<int:id>")
 def pag_carrinho_delete(id):
     remover_pokemon_carrinho(id,session['usuario_logado']["id_usuario"])
-    return redirect("/inicio")
+    pagina_anterior = request.referrer or "/inicio"
+    
+    return redirect(pagina_anterior)
 
 
 # @app.route("/api/get/carrinho", methods = ["GET"])

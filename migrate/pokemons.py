@@ -181,7 +181,7 @@ cursor.execute("""
         VALUES (
             97,
             'Alex Fernando Stocco',
-            'derrotei o clube dos 5 só com ele, hipnose come sonhos',
+            'derrotei o clube dos 5 só com ele, hipnose e come sonhos',
             5,
             LAST_INSERT_ID()
         );

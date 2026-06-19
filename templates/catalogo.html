@@ -110,24 +110,33 @@
     <!-- CARD GRID -->
     <div class="card-grid" id="cardGrid">
       {% for pokemon in pokemons: %}
-      <a href="/unitario/{{pokemon.id}}">
-        <div class="card">
-          <div class="card-img-wrap" style="background:var(--{{pokemon.type1}})">
-              <img src="{{pokemon.image}}" alt="{{pokemon.name}}" loading="lazy">
-              <span class="card-badge" style="background:var(--badge-{{pokemon.type1}})">{{pokemon.type1}}</span>
-                <button class="card-fav" title="Favoritar">
-                      <span class="material-symbols-outlined">shopping_cart</span>
+      <div class="card">
+        <div class="card-img-wrap" style="background: var(--{{pokemon.type1}})">
+            <a href="/unitario/{{pokemon.id}}">
+                <img src="{{pokemon.image}}" alt="{{pokemon.name}}">
+            </a>
+            
+            <span class="card-badge" style="background: var(--badge-{{pokemon.type1}})">{{pokemon.type1}}</span>
+            
+            <a href="/carrinho/post/{{pokemon.id}}">
+                <button class="card-fav" title="Adicionar ao carrinho">
+                    <span class="material-symbols-outlined">shopping_cart</span>
                 </button>
-            </div>
-            <div class="card-body">
-              <div class="teste">
-                <div class="card-name">{{pokemon.name}}</div>
-                <div class="card-tipos">{{pokemon.type1}}{% if pokemon.type2 == none :%}{% else %}/{{pokemon.type2}}{% endif %}</div>
-              </div>
-              <div class="card-price">R${{pokemon.price}}</div>
-            </div>
+            </a>
         </div>
-      </a>
+        
+        <a href="/unitario/{{pokemon.id}}" style="text-decoration: none; color: inherit;">
+            <div class="card-body">
+                <div class="teste">
+                    <div class="card-name">{{pokemon.name}}</div>
+                    <div class="card-tipos">
+                        {{pokemon.type1}}{% if pokemon.type2 %}/{{pokemon.type2}}{% endif %}
+                    </div>
+                </div>
+                <div class="card-price">R${{pokemon.price}}</div>
+            </div>
+        </a>
+    </div>
       {% endfor %}
     </div>
  

@@ -295,6 +295,10 @@ main { flex: 1; min-width: 0; }
   text-transform: uppercase;
   letter-spacing: .4px;
 }
+
+.card-badge:hover {
+  cursor: default;
+}
 .badge-Fogo    { background: #e67e22; }
 .badge-Agua    { background: #2980b9; }
 .badge-Planta  { background: #27ae60; }

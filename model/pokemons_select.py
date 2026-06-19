@@ -547,7 +547,9 @@ def recuperar_pokemons_destaques_lendarios():
     'Groudon',
     'Rayquaza',
     'Jirachi',
-    'Deoxys'
+    'Deoxys',
+    'Hoopa',
+    'Hoopa-Despertado'
     )
 
     GROUP BY
