@@ -166,6 +166,10 @@ def pag_carrinho_delete(id):
     return redirect(pagina_anterior)
 
 
+@app.route("/sobre-nos")
+def pagina_sobre_nos():
+    return render_template("sobre-nos.html")
+
 # @app.route("/api/get/carrinho", methods = ["GET"])
 # def api_get_carrinho():
 #     if "usuario_logado" in session:

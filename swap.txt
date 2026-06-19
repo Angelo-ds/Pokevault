@@ -25,3 +25,8 @@ VALUES (
     1
 );
 
+
+
+
+
+deixar um insert pronto
