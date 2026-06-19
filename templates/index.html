@@ -20,7 +20,7 @@
         <section class="destaques">
 
             <div class="destaque-header">
-                <h2>Pokemon em Destaque</h2>
+                <h2>Pokemons em Destaque</h2>
                 <a href="/catalogo/1"><button class="ver-todos">Ver todos →</button></a>
             </div>
 
@@ -30,9 +30,11 @@
                 <div class="card-destaque">
                     <div class="img-wrap" style="background:var(--{{pokemon.type1}})">
                         <span class="type-badge" style="background:var(--badge-{{pokemon.type1}})">{{pokemon.type1}}</span>
-                        <button class="btn-fav">
-                            <span class="material-symbols-outlined">shopping_cart</span>
-                        </button>
+                        <a href="/carrinho/post/{{pokemon.id}}">
+                            <button class="btn-fav">
+                                <span class="material-symbols-outlined">shopping_cart</span>
+                            </button>
+                        </a>
                         <a href="/unitario/{{pokemon.id}}">
                         <img src="{{pokemon.image}}" alt="{{pokemon.name}}">
                     </div>
@@ -46,7 +48,7 @@
             </div>
 
             <div class="destaque-header">
-                <h2>Itens e Pokebolas em Destaque</h2>
+                <h2>Pokemons Lendários em Destaque</h2>
                 <button class="ver-todos">Ver todos →</button>
             </div>
 
@@ -56,10 +58,11 @@
                 <div class="card-destaque">
                     <div class="img-wrap" style="background:var(--{{pokemon.type1}})">
                         <span class="type-badge" style="background:var(--badge-{{pokemon.type1}})">{{pokemon.type1}}</span>
-                        <button class="btn-fav">
-                            <span class="material-symbols-outlined">favorite</span>
-
-                        </button>
+                        <a href="/carrinho/post/{{pokemon.id}}">
+                            <button class="btn-fav">
+                                <span class="material-symbols-outlined">shopping_cart</span>
+                            </button>
+                        </a>
                         <a href="/unitario/{{pokemon.id}}">
                         <img src="{{pokemon.image}}" alt="{{pokemon.name}}">
                     </div>
