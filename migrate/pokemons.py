@@ -177,15 +177,19 @@ cursor.execute("""
             'https://www.image2url.com/r2/default/images/1781811022481-d834e504-0630-4474-9554-a9237eba509d.png'
         );
 
-        INSERT INTO comentario_unitario (id_pokemon, nome_usuario, comentario, nota, id_usuario)
+
+""") 
+conexao.commit()
+
+
+cursor.execute("""        INSERT INTO comentario_unitario (id_pokemon, nome_usuario, comentario, nota, id_usuario)
         VALUES (
             97,
             'Alex Stocco',
             'derrotei o clube dos 5 só com ele, hipnose e come sonhos',
             5,
             LAST_INSERT_ID()
-        );
-""") 
+        );""")
 
 conexao.commit()
 
