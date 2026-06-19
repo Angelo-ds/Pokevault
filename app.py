@@ -58,7 +58,7 @@ def logar_usuario_post():
 
     if resultado:
         session["usuario_logado"] = resultado
-        return redirect("/cardapio/1")
+        return redirect("/catalogo/1")
     else:
         flash("Usuário ou senha incorretos!")
         return redirect("/login")
