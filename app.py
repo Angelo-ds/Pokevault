@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, jsonify
+from flask import Flask, render_template, request, redirect, session, jsonify, flash
 from model.pokemons_select import recuperar_pokemons
 from model.pokemons_select import recuperar_pokemon_unitario
 from model.pokemons_select import recuperar_pokemons_destaques
@@ -58,9 +58,11 @@ def logar_usuario_post():
 
     if resultado:
         session["usuario_logado"] = resultado
-        print("RESULTADO LOGIN:", resultado["id_usuario"])
-    return redirect("/")
-
+        return redirect("/cardapio/1")
+    else:
+        flash("Usuário ou senha incorretos!")
+        return redirect("/login")
+    
 @app.route("/cadastro")
 def pagina_cadastro():
     return render_template("cadastro.html")

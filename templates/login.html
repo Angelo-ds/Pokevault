@@ -184,6 +184,13 @@
         <input class="pv-input" id="senha" name="senha" type="password" placeholder="••••••••" />
       </div>
 
+      <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;" class="error">
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+            <span style="color:red; display: inline; width: 100%; text-align: center;">{{message}}</span>
+            {% endfor %}
+        {% endwith %}
+      </div>
 
       <button class="pv-btn">ENTRAR</button>
     </form>
