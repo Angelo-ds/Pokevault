@@ -35,17 +35,17 @@ const carregarComents = async () => {
                     : ''
 
                 container.innerHTML += `
-<div class="review">
-    <img src="${c.foto_perfil}" class="avatar">
-    <div class="review-content">
-        <div class="top">
-            <strong>${c.nome_usuario}</strong>
-        </div>
-        <div class="stars">${gerarEstrelas(c.nota)}</div>
-        <p>${c.comentario}</p>
-        ${botaoExcluir}
-    </div>
-</div>`
+                    <div class="review">
+                        <img src="${c.foto_perfil}" class="avatar">
+                        <div class="review-content">
+                            <div class="top">
+                                <strong>${c.nome_usuario}</strong>
+                            </div>
+                            <div class="stars">${gerarEstrelas(c.nota)}</div>
+                            <p>${c.comentario}</p>
+                            ${botaoExcluir}
+                        </div>
+                    </div>`
             })
         }
 

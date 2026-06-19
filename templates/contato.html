@@ -1,0 +1,212 @@
+{% extends "layout.html" %}
+{% block conteudo %}
+
+<style>
+/* ===========================================================
+   PokeVault — estilos da página Contato (contato.html)
+   =========================================================== */
+
+:root {
+  --red: #E0473C;
+  --red-dark: #C73A30;
+  --cream: #F0EDE6;
+  --cream-card: #FAF8F4;
+  --ink: #2A2522;
+  --ink-soft: #5C5550;
+  --gold: #F4C430;
+  --line: #E3DED5;
+  --shadow: 0 4px 14px rgba(42, 37, 34, 0.08);
+  --shadow-lg: 0 10px 30px rgba(42, 37, 34, 0.14);
+  --radius: 14px;
+  --font-display: "Baloo 2", "Fredoka", system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background-color: var(--cream);
+  background: url("/static/img/background-colorido.png");
+  background-attachment: fixed;
+}
+
+
+
+/* ---------- Contact page ---------- */
+.contact-wrap {
+  max-width: 1100px;
+  margin: 36px auto 0;
+  padding: 0 16px;
+  height: 65.6vh;
+}
+.contact-panel {
+  margin-top: 70px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: var(--shadow-lg);
+  padding: 36px 40px 30px;
+}
+.contact-panel > h1 {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  margin: 0 0 22px;
+  text-align: left;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 30px;
+  align-items: stretch; /* Corrigido de 'start' para 'stretch' para esticar as colunas igualmente */
+}
+.contact-illustration {
+  border-radius: 14px;
+  overflow: hidden;
+  height: 100%; /* Adicionado para forçar a imagem a ocupar 100% da altura do container */
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%),
+    url('../static/img/contato_hero.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  /* aspect-ratio removido para não travar o tamanho da proporção */
+}
+
+.contact-info h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  margin: 0 0 16px;
+}
+.info-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.info-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+.info-item strong {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+.info-item span {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+.contact-form {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.contact-form input,
+.contact-form textarea {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  background: #fff;
+}
+.contact-form textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+.btn-send {
+  background: var(--red);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 11px 0;
+  font-weight: 800;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow);
+}
+.btn-send:hover { background: var(--red-dark); }
+
+</style>
+</head>
+<body>
+  <div class="contact-wrap">
+    <div class="contact-panel">
+      <h1>De sua opnião ao Site!</h1>
+
+      <div class="contact-grid">
+
+        <div class="contact-illustration"></div>
+
+        <div class="contact-info">
+          <h2>Fale Conosco</h2>
+
+          <div class="info-item">
+            <div class="info-icon">✉️</div>
+            <div>
+              <strong>Email</strong>
+              <span>suporte@pokevault.com.br<br>Tempo de resposta médio: 4 horas.</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📞</div>
+            <div>
+              <strong>Telefone</strong>
+              <span>(11) 98765-4321<br>Atendimento: Seg-Sex, 09h às 18h.</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div>
+              <strong>Endereço</strong>
+              <span>Av. Paulista, 1000 - São Paulo, SP.<br>Visitas apenas com agendamento.</span>
+            </div>
+          </div>
+
+          <form class="contact-form" onsubmit="enviarFormulario(event)">
+            <input type="email" placeholder="Seu Email" required>
+            <textarea placeholder="Sua Mensagem" required></textarea>
+            <button type="submit" class="btn-send">Enviar</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+
+function enviarFormulario(event) {
+    event.preventDefault(); 
+
+    Swal.fire({
+      title: "Enviado com sucesso!",
+      text: "Aguarde nossa resposta",
+      icon: "success"
+    });
+  }
+
+
+</script>
+
+{% endblock %}

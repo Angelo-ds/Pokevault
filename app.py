@@ -187,6 +187,15 @@ def search():
 
 
 
+
+@app.route("/novidades")
+def novidade_pag():
+    return render_template("novidades.html")
+
+@app.route("/contato")
+def contato_pag():
+    return render_template("contato.html")
+
 @app.route("/sobre-nos")
 def pagina_sobre_nos():
     return render_template("sobre-nos.html")
